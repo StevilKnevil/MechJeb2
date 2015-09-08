@@ -82,8 +82,15 @@ namespace MuMech
         {
             GUILayout.BeginVertical();
 
-            GUILayout.Label("When guidance is enabled, the purple circle on the navball points along the ascent path.");
-            ToggleAscentNavballGuidanceInfoItem();
+            if (showingGuidance)
+            {
+                GUILayout.Label("The purple circle on the navball points along the ascent path.");
+                if (GUILayout.Button("Stop showing navball guidance")) core.target.Unset();
+            }
+            else if (GUILayout.Button("Show navball ascent path guidance"))
+            {
+                core.target.SetDirectionTarget(TARGET_NAME);
+            }
 
             if (autopilot != null)
             {
