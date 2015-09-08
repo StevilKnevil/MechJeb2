@@ -68,12 +68,16 @@ namespace MuMech
             if (showingGuidance)
             {
                 if (GUILayout.Button("Hide ascent navball guidance"))
+                {
                     core.target.Unset();
+                }
             }
             else
             {
                 if (GUILayout.Button("Show ascent navball guidance"))
+                {
                     core.target.SetDirectionTarget(TARGET_NAME);
+                }
             }
         }
 
